@@ -11,7 +11,7 @@ public class GameTime : MonoBehaviour
 		private set { GetComponent<Text>().text = value; }
 	}
 	public bool zeroTime = false;
-	public int timeInMins = 5;
+	public int timeInMins = 1;
 	
 	private float sec;
 	private int min;

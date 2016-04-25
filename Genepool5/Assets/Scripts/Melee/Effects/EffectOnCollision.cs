@@ -14,7 +14,7 @@ public class EffectOnCollision : MonoBehaviour
         //}
         if (collision.relativeVelocity.magnitude > 2)
         {
-            Rigidbody proj = Instantiate(effect, transform.position, transform.rotation) as Rigidbody;
+            GameObject proj = Instantiate(effect, transform.position, transform.rotation) as GameObject;
             if (removeOnCollision == true)
             {
                 Destroy(gameObject);

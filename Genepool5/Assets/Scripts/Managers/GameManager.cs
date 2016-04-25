@@ -49,11 +49,11 @@ public class GameManager : MonoBehaviour
 		if (instance == null)
 		{
 			instance = this;
-			DontDestroyOnLoad(gameObject);
+			DontDestroyOnLoad(this);
 		}
 		else if (instance != this)
 		{
-			DestroyImmediate(gameObject);
+			DestroyImmediate(this);
 		}
 	}
 
@@ -66,5 +66,15 @@ public class GameManager : MonoBehaviour
 	public void OnApplicationQuit()
 	{
 		instance = null;
+	}
+
+	public void ResetGameVars()
+	{
+		players.ForEach(Destroy);
+		chosenType.Clear();
+
+		players.Clear();
+		isPlaying.Clear();
+		devices.Clear();
 	}
 }

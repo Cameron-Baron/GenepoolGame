@@ -14,11 +14,12 @@ public class ScoreDisplay : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		ranking.Clear();
 		GM.players.Sort((p1, p2) => p2.GetComponent<Player>().score.CompareTo(p1.GetComponent<Player>().score));
 		WinnerText();
-		DisplayScores();
-    }
+		DisplayScores();		
+
+		GM.ResetGameVars();
+	}
 
 	public void WinnerText()
 	{
@@ -49,7 +50,7 @@ public class ScoreDisplay : MonoBehaviour
 	{
 		for (int i = 0; i < GM.players.Count; i++)
 		{
-			ranking[i].GetComponent<SetScores>().SetValues(GM.players[i]);
+			ranking[i].GetComponent<SetScores>().SetValues(GM.players[i].gameObject);
 		}
 
 		for (int i = GM.players.Count; i < ranking.Count; i++)

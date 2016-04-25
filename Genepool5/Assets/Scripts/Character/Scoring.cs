@@ -6,23 +6,31 @@ public class Scoring : MonoBehaviour
 	public GameObject healthbar;
 	private int getColour = 0;
 
+	GameObject playerRef;
+
 	public Text score
 	{
 		get { return GetComponent<Text>(); }
 	}
 
-	void Update ()
+	void Start()
 	{
-		if (healthbar == null || healthbar.GetComponent<HealthBar>().playerRef == null)
+		playerRef = healthbar.GetComponent<HealthBar>().playerRef;
+
+		if (healthbar == null || playerRef == null)
 		{
 			gameObject.SetActive(false);
 		}
-		else if (getColour == 0 && healthbar.GetComponent<HealthBar>().playerRef != null)
+		else if (getColour == 0 && playerRef != null)
 		{
-			score.color = healthbar.GetComponent<HealthBar>().playerRef.GetComponent<Player>().indicator.GetComponent<Renderer>().material.GetColor("_EmissionColor");
+			score.color = playerRef.GetComponent<Player>().indicator.GetComponent<Renderer>().material.GetColor("_EmissionColor");
 			getColour++;
 		}
+	}
+
+	void Update ()
+	{
 		
-		score.text = healthbar.GetComponent<HealthBar>().playerRef.GetComponent<Player>().score.ToString();
+		score.text = playerRef.GetComponent<Player>().score.ToString();
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -64,7 +65,7 @@ public class MainMenuScript : MonoBehaviour
 
 	public void LoadNext()
 	{
-		Application.LoadLevel((int)GameState.CHARACTERS);
+		SceneManager.LoadScene((int)GameState.CHARACTERS);
 	}
 
     public void ExitGame()

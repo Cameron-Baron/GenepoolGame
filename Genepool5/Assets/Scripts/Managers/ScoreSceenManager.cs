@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreSceenManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class ScoreSceenManager : MonoBehaviour
 
 	public void LoadMenu()
 	{
-		Application.LoadLevel((int)GameState.MENU);
+		GM.ResetGameVars();
+		SceneManager.LoadScene((int)GameState.MENU);
 	}
 }

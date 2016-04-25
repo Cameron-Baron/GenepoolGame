@@ -5,7 +5,7 @@ using InControl;
 public class FullAutoSound : MonoBehaviour 
 {
     private InputDevice device;
-
+	
     public AudioClip gunSound;
     public float delay = 1;
     public float volume = 1;

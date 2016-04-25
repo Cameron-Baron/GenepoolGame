@@ -7,13 +7,11 @@ public class Health : MonoBehaviour
 	public float hurtForce = 10f;                   // The force with which the player is pushed when hurt.
 
 	private bool killable = true;
-	private Rigidbody body;
 
 	// Use this for initialization
 	void Awake ()
     {
 		// Set References.
-		body = GetComponent<Rigidbody>();
     }
 
 	/// <summary>
@@ -40,9 +38,8 @@ public class Health : MonoBehaviour
 			}
 			else
 			{
-				gameObject.GetComponent<PlayerDeath>().DieAndRespawn();
+				//gameObject.GetComponent<PlayerDeath>().DieAndRespawn();
 				gameObject.GetComponent<Collider>().enabled = false;
-				//gameObject.GetComponentInParent<PlayerInstantiate>().Respawn(gameObject.GetComponent<Player>());	
 				//gameObject.GetComponent<Player>().stats.deaths++;				
 			}
 		}

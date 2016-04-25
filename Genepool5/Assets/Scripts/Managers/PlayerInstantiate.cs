@@ -29,10 +29,10 @@ public class PlayerInstantiate : MonoBehaviour
 			player.tag = "Player";
 			if (player.GetComponent<Player>().indicator != null)
 			{
-				player.GetComponent<Player>().indicator.GetComponent<Renderer>().material.SetColor("_EmissionColor", colours[i]);
+				player.GetComponent<Player>().indicator.GetComponent<Renderer>().material.SetColor("_Color", colours[i]);
 				player.GetComponent<Player>().colour = colours[i];
             }
-			GM.players.Add(player);
+			GM.players.Add(player.gameObject);
 			DontDestroyOnLoad(player);
 		}
 	}
